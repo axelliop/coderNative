@@ -6,6 +6,7 @@ import { Button, Modal as NewModal, StyleSheet, Text, View } from "react-native"
 
 import React from "react"
 
+/* --- IMPORTO LOS ATRIBUTOS POR PROPS, DENTRO DE UN PARENTESIS Y LLAVE --- */
 const Modal = ({
   isVisible,
   actionDeleteItem,

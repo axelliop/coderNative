@@ -84,7 +84,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E7EAF2",
+    backgroundColor: "grey",
   },
   titleContainer: {
     height: 200,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     fontSize: 40,
     fontWeight: "500",
-    color: "#1E283C",
+    color: "white",
   },
   listContainer: {
     flex: 2,

@@ -7,6 +7,7 @@ import React from "react"
 const AddItem = ({ onChange, textValue, onAddItem }) => {
   return (
     <View style={styles.inputContainer}>
+      
       <TextInput
         placeholder="Escribe el producto!"
         style={styles.addItemInput}
