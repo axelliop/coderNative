@@ -4,7 +4,7 @@ import React from "react"
 
 /* ---------- AÑADIR EL PRODUCTO ---------- */
 
-const AddItem = ({ onChange, textValue, onAddItem }) => {
+const AddItem = ({ onChange, textValue, onAddItem, modalVisible }) => {
   return (
     <View style={styles.inputContainer}>
       
@@ -15,6 +15,7 @@ const AddItem = ({ onChange, textValue, onAddItem }) => {
         value={textValue}
       />
       <Button title="ADD" onPress={onAddItem} />
+
     </View>
   )
 }

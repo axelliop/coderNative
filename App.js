@@ -9,7 +9,7 @@
 
 /* siempre colocar la propiedad TITLE en button, textinput para escribir un texto */
 
-import { Button, FlatList, StyleSheet, Text, View } from "react-native"
+import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import React, { useState } from "react"
 
 import AddItem from "./src/components/AddItem"
@@ -20,6 +20,9 @@ export default function App() {
   const [list, setList] = useState([])
   const [itemSelected, setItemSelected] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
+  const [isReadyVisible, setIsReadyVisible] = useState(false);
+  
+ 
 
   const onHandleChangeItem = text => {
     setTextItem(text)
@@ -28,6 +31,7 @@ export default function App() {
   const addItem = () => {
     setList(prevState => [...prevState, textItem])
     setTextItem("")
+    
   }
 
 
@@ -41,7 +45,7 @@ export default function App() {
   const onHandleDelete = item => {
     console.log(item)
     setList(prevState => prevState.filter(element => element !== item))
-    setModalVisible(!modalVisble)
+    setModalVisible(!modalVisible)
   }
 
 
@@ -49,8 +53,27 @@ export default function App() {
   const renderItem = ({ item }) => (
     <View style={styles.renderItemStyle}>
       <Text>{item}</Text>
+
+
+
       <Button title="Edit" onPress={() => handleModal(item)} />
+
+{/* OPCION DE LISTO */}
+      <View>
+      <Button
+        title="Listo"
+        onPress={() => setIsReadyVisible(!isReadyVisible)}
+      />
+      {isReadyVisible && (
+        <Text>Listo</Text>
+      )}
     </View>
+
+
+    </View>
+
+    
+    
   )
 
   return (
@@ -62,6 +85,9 @@ export default function App() {
           textValue={textItem}
           onAddItem={addItem}
         />
+      
+
+      
       </View>
       <View style={styles.listContainer}>
         <FlatList
@@ -69,6 +95,7 @@ export default function App() {
           renderItem={renderItem}
           keyExtractor={item => item}
         />
+
       </View>
       <Modal
       /* --------- AGREGO LA VARIABLE DE LOS ESTADOS, DE ESTA FORMA DESPUES LO PUEDO PASAR EN PROPS EN MODAL.JS -------------- */
